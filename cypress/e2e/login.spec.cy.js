@@ -8,7 +8,7 @@ const elementsList = {
 
 describe('Login Tests', () => {
   it('Login - Success', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('/auth/login')
     cy.get(elementsList.usernameField).type('Admin')
     cy.get(elementsList.passwordField).type('admin123')
     cy.get(elementsList.submitButton).click()
@@ -17,7 +17,7 @@ describe('Login Tests', () => {
   })
 
   it('Login - Fail', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('/auth/login')
     cy.get(elementsList.usernameField).type('Test')
     cy.get(elementsList.passwordField).type('Test')
     cy.get(elementsList.submitButton).click()
