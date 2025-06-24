@@ -1,3 +1,5 @@
+import userData from '../fixtures users/user-data.json'
+
 const elementsList = {
   usernameField: "[name='username']",
   passwordField: "[name='password']",
