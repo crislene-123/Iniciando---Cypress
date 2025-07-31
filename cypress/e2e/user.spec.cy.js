@@ -1,4 +1,7 @@
-import userData from'../fixtures_users/users-data.json'
+import userData from '../fixtures/user-data.json'
+import LoginPage from '../pages/loginPage.js'
+// import dashboardPage from '../orangehrm-dashboard-grid'
+const loginPage = new LoginPage()
 
 describe('Orange HRM Tests', () => {
 
@@ -12,13 +15,15 @@ describe('Orange HRM Tests', () => {
     MyInfoButton:'[href="/web/index.php/pim/viewMyDetails"]',
     firstNameField: "[name ='firstName']",
     lastNameField: "[name ='lastName']",
-   genericField: ".oxd-input--active",
-   dateField: "[placeholder ='yyyy-mm-dd']",
-   dateCloseButton: ".--close",
-   submitButton: "[type='submit']"
+    genericField: ".oxd-input--active",
+    dateField: "[placeholder ='yyyy-mm-dd']",
+    dateCloseButton: ".--close",
+    submitButton: "[type='submit']"
   }
 
   it.only('User Info Update - Success', () => {
+    loginPage.accessLoginPage();
+    loginPage.loginWithUser(userData.userSuccess.username,userSuccess.password)
     cy.fixture('users/user-data.json').then((userData) => {
       cy.visit('/auth/login')
       cy.get(selectorList.usernameField).type(userData.userSuccess.username)
